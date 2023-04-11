@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html>
+<head>	
+
+
+  <title>Compare striker</title>
+  <meta property="og:image" content="https://imgur.com/a/oucLxZp">
+	
+    <defs>
+        <style>
+           
+         
+   .center {
+        display: flex;
+        justify-content: center;
+text-align: center;
+    }
+#radar_container {
+  margin: 0 auto;
+}
+  .code-block {
+    position: absolute;
+    top: 10;
+    left: 10;
+  }
+  #code-block-2 {
+    margin-top: 20px;
+  }     
+#radar_chart {
+  position: relative;
+top: 50px;
+left: 500px;
+  z-index: 2;
+}
+#radar_label {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+  z-index: 1;
+}       
+
+.highlight {
+  color: rgb(248, 0, 200);
+}
+
+.highlight2 {
+  color: rgb(28, 63, 213);
+}
+
+
+</style>
+</defs>
+</head>
+
+
+<body>
+
+
+
+
+<script>
+const csvData = `1,V. Osimhen,0.23,0.874,0.996,0.985,0.992,0.33,0.808
+2,Gonçalo Ramos,0.709,0.728,0.985,0.985,0.973,0.49,0.609
+3,R. Højlund,0.169,0.253,0.966,0.674,0.958,0.72,0.774
+4,M. Kudus,0.858,0.165,0.935,0.885,0.743,0.406,0.935
+5,B. Brobbey,0.061,0.736,0.927,0.793,0.989,0.644,0.153
+6,E. Wahi,0.157,0.031,0.9,0.444,0.544,0.33,0.674
+7,E. Ferguson,0.552,0.429,0.881,0.387,0.241,0.49,0.337
+8,B. Šeško,0.506,0.946,0.881,0.655,0.674,0.33,0.751
+9,L. Openda,0.13,0.552,0.881,0.793,0.843,0.854,0.755
+10,T. Dallinga,0.211,0.755,0.874,0.674,0.605,0.774,0.188
+11,B. Embolo,0.67,0.337,0.847,0.693,0.249,0.897,0.69
+12,A. Lookman,0.632,0.031,0.847,0.655,0.912,0.981,0.985
+13,M. Thuram,0.387,0.663,0.824,0.851,0.705,0.33,0.862
+14,A. Mitrović,0.441,0.701,0.755,0.885,0.881,0.23,0.556
+15,J. David,0.349,0.015,0.728,0.981,0.916,0.774,0.571
+16,R. Kolo Muani,0.429,0.548,0.705,0.333,0.72,0.644,0.962
+17,D. Vlahović,0.042,0.536,0.648,0.716,0.59,0.613,0.375
+18,H. Kane,0.069,0.613,0.632,0.774,0.195,0.571,0.797
+19,P. Dybala,0.927,0.291,0.609,0.444,0.096,0.992,0.927
+20,L. Martínez,0.923,0.59,0.598,0.739,0.851,0.571,0.632
+21,Y. Moukoko,0.307,0.142,0.54,0.674,0.33,0.33,0.808
+22,A. Gouiri,0.766,0.215,0.521,0.387,0.475,0.72,0.72
+23,W. Weghorst,0.716,0.556,0.494,0.693,0.801,0.49,0.211
+24,E. Haaland,0.011,0.866,1,1,0.981,0.644,0.598
+25,K. Mbappé,0.004,0.893,0.992,0.958,1,0.916,1
+26,E. Choupo-Moting,0.284,0.72,0.989,0.613,0.762,0.406,0.64
+27,J. Nsamé,0.084,0.931,0.969,0.992,0.954,0.72,0.467
+28,Rodrigo,0.651,0.249,0.962,0.739,0.897,0.571,0.72
+29,V. Pavlidis,0.916,0.82,0.958,0.897,0.977,0.854,0.759
+30,J. Adamu,0.969,0.506,0.946,0.716,0.651,0.49,0.747
+31,A. Lacazette,0.747,0.533,0.946,0.95,0.789,0.897,0.828
+32,W. Ben Yedder,0.234,0.069,0.946,0.962,0.923,0.644,0.782
+33,C. Larin,0.536,0.54,0.943,0.739,0.87,0.069,0.284
+34,G. Nilsson,0.843,0.977,0.935,0.563,0.387,0.23,0.314
+35,S. Giménez,0.126,0.678,0.927,0.969,0.812,0.49,0.732
+36,Vitinha,0.996,0.471,0.912,0.693,0.904,0.406,0.923
+37,T. Moffi,0.322,0.142,0.912,0.563,0.264,0.069,0.575
+38,R. Lewandowski,0.249,0.847,0.912,0.95,0.747,0.812,0.847
+39,Toni Martínez,0.18,0.95,0.912,0.897,0.9,0.812,0.705
+40,José Luis Morales,0.368,0.364,0.9,0.793,0.877,0.644,0.908
+41,P. Onuachu,0.356,0.762,0.9,0.931,0.513,0.069,0.345
+42,Arthur Cabral,0.456,0.479,0.881,0.897,0.95,0.23,0.487
+43,Álvaro Morata,0.421,0.916,0.881,0.739,0.54,0.33,0.713
+44,R. Krollis,0.747,0.782,0.874,0.931,0.966,0.854,0.801
+45,T. Baribo,0.264,0.096,0.87,0.824,0.322,0.23,0.23
+46,A. Zeqiri,0.429,0.421,0.862,0.793,0.874,0.149,0.414
+47,C. Nkunku,0.414,0.812,0.862,0.774,0.785,0.916,0.82
+48,Roberto Firmino,0.943,0.36,0.847,0.563,0.927,0.72,0.808
+49,Paulinho,0.835,0.778,0.847,0.793,0.759,0.644,0.506
+50,J. Álvarez,0.851,0.031,0.824,0.716,0.67,0.23,0.556
+51,C. Akolo,0.571,0.858,0.824,0.521,0.582,0.854,0.831
+52,T. Werner,0.073,0.092,0.824,0.521,0.92,0.644,0.874
+53,E. Simms,0.038,0.693,0.824,0.303,0.291,0.774,0.238
+54,S. Guirassy,0.019,0.992,0.824,0.709,0.943,0.015,0.64
+55,A. Douvikas,0.916,0.414,0.808,0.774,0.831,0.72,0.632
+56,D. Núñez,0.739,0.682,0.808,0.866,0.985,0.72,0.916
+57,C. Itten,0.644,0.739,0.808,0.916,0.893,0.644,0.854
+58,H. Diallo,0.33,0.709,0.808,0.866,0.644,0.49,0.276
+59,G. Raspadori,0.736,0.375,0.797,0.444,0.72,0.644,0.701
+60,Danilo,0.559,0.222,0.797,0.866,0.862,0.49,0.352
+61,S. Hamulić,0.05,0.498,0.797,0.521,0.705,0.149,0.874
+62,F. Stojiljković,0.13,0.1,0.789,0.613,0.525,0.23,0.238
+63,L. Messi,0.061,0.391,0.789,0.943,0.448,0.996,0.996
+64,B. Dia,0.245,0.272,0.778,0.215,0.054,0.23,0.494
+65,F. Balogun,0.218,0.065,0.778,0.992,0.885,0.571,0.801
+66,S. van Hooijdonk,0.103,0.92,0.778,0.674,0.437,0.23,0.138
+67,R. Pepi,0.9,0.41,0.755,0.387,0.621,0.406,0.211
+68,Y. En-Nesyri,0.594,0.571,0.755,0.521,0.563,0.004,0.057
+69,L. Jović,0.146,0.406,0.755,0.851,0.617,0.149,0.337
+70,M. Kean,0.119,0.743,0.755,0.885,0.594,0.33,0.69
+71,S. Banza,0.1,0.805,0.755,0.59,0.544,0.23,0.483
+72,N. Štulić,0.908,0.444,0.728,0.444,0.215,0.069,0.096
+73,B. Dost,0.448,1,0.728,0.563,0.188,0.644,0.019
+74,Y. Njie,0.441,0.23,0.728,0.824,0.23,0.149,0.582
+75,Z. Gano,0.41,0.958,0.728,0.943,0.697,0.015,0.234
+76,S. Perica,0.356,0.199,0.728,0.923,0.379,0.038,0.153
+77,E. Emegha,0.18,0.605,0.728,0.916,0.908,0.23,0.253
+78,M. Taremi,0.839,0.705,0.713,0.739,0.843,0.854,0.736
+79,G. Scamacca,0.261,0.766,0.713,0.552,0.41,0.069,0.264
+80,V. Boniface,0.207,0.64,0.713,0.851,0.586,0.49,0.958
+81,Lucas Pérez,0.165,0.192,0.713,0.264,0.027,0.946,0.548
+82,Omar Marmoush,0.755,0.931,0.705,0.241,0.958,0.812,0.954
+83,M. Gregoritsch,0.609,0.885,0.682,0.674,0.69,0.406,0.398
+84,A. Ueda,0.582,0.602,0.682,0.444,0.464,0.015,0.395
+85,E. Nketiah,0.529,0.51,0.682,0.793,0.946,0.49,0.621
+86,A. Sørloth,0.352,0.962,0.682,0.418,0.192,0.49,0.437
+87,Mario González,0.195,0.617,0.682,0.563,0.096,0.069,0.126
+88,K. Benzema,0.023,0.824,0.682,0.977,0.931,0.774,0.851
+89,Gabriel Jesus,0.935,0.372,0.648,0.969,0.996,0.774,0.977
+90,M. Antonio,0.59,0.429,0.648,0.521,0.728,0.72,0.9
+91,Joselu,0.498,0.981,0.648,0.655,0.284,0.069,0.103
+92,E. Džeko,0.448,0.851,0.648,0.716,0.716,0.72,0.663
+93,M. Elia,0.337,0.031,0.648,0.387,0.701,0.774,0.931
+94,K. Iheanacho,0.264,0.031,0.648,0.444,0.682,0.897,0.77
+95,Sergio León,0.234,0.238,0.648,0.264,0.161,0.33,0.521
+96,Gerard Moreno,0.073,0.801,0.648,0.897,0.567,0.812,0.843
+97,Beto,0.575,0.797,0.632,0.333,0.659,0.72,0.525
+98,Kike García,0.464,0.456,0.632,0.793,0.801,0.406,0.264
+99,N. Füllkrug,0.264,0.904,0.632,0.793,0.678,0.774,0.705
+100,A. Semenyo,0.655,0.448,0.609,0.418,0.778,0.613,0.893
+101,I. Toney,0.621,0.77,0.609,0.897,0.487,0.613,0.548
+102,V. Muriqi,0.475,0.912,0.609,0.563,0.184,0.33,0.184
+103,L. Foster,0.46,0.402,0.609,0.215,0.651,0.49,0.613
+104,A. Milik,0.18,0.387,0.609,0.215,0.08,0.23,0.222
+105,Fran Navarro,0.326,0.398,0.598,0.962,0.268,0.069,0.295
+106,O. Giroud,0.172,0.966,0.598,0.851,0.854,0.406,0.138
+107,Mama Baldé,0.9,0.425,0.571,0.184,0.513,0.149,0.575
+108,P. Daka,0.831,0.261,0.571,0.368,0.751,0.49,0.448
+109,G. Laborde,0.774,0.46,0.571,0.387,0.544,0.613,0.789
+110,E. Touré,0.621,0.594,0.571,0.303,0.398,0.149,0.188
+111,T. Arokodare,0.464,0.923,0.571,0.824,0.935,0.149,0.18
+112,Anderson Silva,0.379,0.08,0.571,0.333,0.667,0,0.686
+113,A. Sánchez,0.253,0.234,0.571,0.824,0.605,0.774,0.697
+114,D. Beljo,0.475,0.9,0.559,0.184,0.034,0.33,0.257
+115,N. Okafor,0.475,0.023,0.559,0.444,0.628,0.966,0.973
+116,M. Nzola,0.398,0.107,0.559,0.444,0.437,0.23,0.398
+117,J. Le Douaron,0.989,0.713,0.54,0.59,0.295,0.069,0.494
+118,B. Raman,0.797,0.008,0.54,0.303,0.828,0.931,0.421
+119,C. Dessers,0.406,0.126,0.54,0.931,0.824,0.038,0.628
+120,Y. Aziz,0.046,0.257,0.54,0.368,0.088,0.23,0.314
+121,G. Kakuta,0.824,0.521,0.521,0.184,0.138,0.966,0.939
+122,L. Suárez,0.801,0.521,0.521,0.613,0.536,0.33,0.651
+123,A. Tosin,0.54,0.287,0.521,0.655,0.41,0.613,0.897
+124,Ž. Celar,0.031,0.115,0.521,0.739,0.605,0.49,0.36
+125,L. de Jong,0.762,0.973,0.494,0.824,0.621,0.644,0.153
+126,K. Onisiwo,0.724,0.452,0.494,0.134,0.751,0.897,0.904
+127,D. Ings,0.644,0.632,0.494,0.636,0.337,0.23,0.245
+128,V. Castellanos,0.487,0.862,0.494,0.739,0.64,0.149,0.433
+129,A. Kalimuendo,0.437,0.019,0.494,0.303,0.728,0.812,0.494
+130,Iago Aspas,0.218,0.383,0.494,0.333,0.337,0.854,0.613
+131,L. Colombo,0.943,0.057,0.475,0.333,0.268,0.23,0.625
+132,D. Hayashi,0.881,0.011,0.475,0.08,0.126,0.23,0.203
+133,V. Janssen,0.828,0.854,0.475,0.636,0.648,0.571,0.437
+134,C. Immobile,0.299,0.176,0.475,0.716,0.862,0.069,0.667
+135,J. Guidetti,0.149,0.341,0.475,0.444,0.736,0.981,0.153
+136,Á. Correa,0.893,0.073,0.452,0.636,0.969,0.916,0.92
+137,E. Ponce,0.64,0.579,0.452,0.172,0.142,0.33,0
+138,M. Berisha,0.521,0.352,0.452,0.636,0.425,0.916,0.774
+139,Rafa Mir,0.379,0.418,0.452,0.693,0.682,0.774,0.287
+140,B. Fink,0.31,0.18,0.452,0.444,0.46,0.49,0.031
+141,C. Adams,0.123,0.464,0.452,0.264,0.41,0.571,0.226
+142,K. Havertz,0.858,0.759,0.418,0.521,0.77,0.571,0.471
+143,M. Frey,0.808,0.789,0.418,0.824,0.766,0.854,0.648
+144,O. Watkins,0.663,0.299,0.418,0.444,0.464,0.49,0.556
+145,M. Gabbiadini,0.594,0.188,0.418,0.368,0.195,0.72,0.421
+146,André Silva,0.402,0.517,0.418,0.709,0.939,0.644,0.762
+147,I. Slimani,0.337,0.713,0.418,0.59,0.556,0.644,0.038
+148,M. Braithwaite,0.314,0.644,0.418,0.184,0.169,0.406,0.506
+149,E. Cavani,0.291,0.207,0.418,0.613,0.475,0.038,0.05
+150,J. Pohjanpalo,0.034,0.839,0.418,0.444,0.506,0.644,0.073
+151,L. Trossard,0.759,0.119,0.391,0.103,0.82,0.966,0.943
+152,Mostafa Mohamed,0.713,0.808,0.391,0.521,0.36,0.23,0.092
+153,P. Hofmann,0.609,0.931,0.391,0.134,0.046,0.406,0.027
+154,S. Tigges,0.594,0.835,0.391,0.172,0.352,0.33,0.146
+155,T. Lauritsen,0.552,0.989,0.391,0.521,0.268,0.038,0.295
+156,M. Ducksch,0.226,0.659,0.391,0.333,0.858,0.897,0.418
+157,W. Kanga,0.138,0.651,0.391,0.264,0.801,0.406,0.33
+158,P. Bamford,0.766,0.169,0.368,0.613,0.533,0.406,0.364
+159,E. Ünal,0.716,0.697,0.368,0.418,0.23,0.23,0.123
+160,K. Gameiro,0.628,0.142,0.368,0.51,0.49,0.49,0.46
+161,L. Dimata,0.088,0.954,0.368,0.444,0.368,0.406,0.203
+162,M. Osmajić,0.073,0.33,0.368,0.59,0.111,0.069,0.153
+163,C. Wilson,0,0.272,0.368,0.866,0.889,0.812,0.245
+164,D. Drăguş,0.977,0.111,0.345,0.264,0.398,0.149,0.762
+165,E. Ávila,0.954,0.67,0.345,0.303,0.019,0.406,0.874
+166,O. Édouard,0.851,0.429,0.345,0.215,0.379,0.149,0.31
+167,Abel Ruiz,0.563,0.054,0.345,0.184,0.789,0.72,0.594
+168,K. Denkey,0.506,0.303,0.345,0.51,0.425,0.406,0.525
+169,A. Sanabria,0.107,0.349,0.345,0.552,0.314,0.644,0.057
+170,K. Moore,0.678,0.931,0.318,0.061,0.065,0.015,0.034
+171,M. Arnautović,0.655,0.54,0.318,0.613,0.088,0.571,0.345
+172,B. Białek,0.582,0.084,0.318,0.368,0.165,0.069,0.314
+173,Chris Ramos,0.575,0.969,0.318,0.134,0.211,0.069,0.375
+174,Y. Wissa,0.414,0.72,0.318,0.042,0.153,0.774,0.452
+175,Borja Iglesias,0.291,0.077,0.318,0.655,0.387,0.72,0.368
+176,J. Cádiz,0.195,0.897,0.318,0.59,0.433,0.149,0.195
+177,Richarlison,0.874,0.226,0.307,0.241,0.77,0.644,0.651
+178,A. Samatta,0.808,0.429,0.307,0.103,0.042,0.406,0.452
+179,A. Kramarić,0.506,0.004,0.307,0.241,0.261,0.33,0.544
+180,E. Demirović,0.966,0.322,0.291,0.333,0.51,0.23,0.398
+181,A. Belotti,0.816,0.582,0.291,0.387,0.322,0.49,0.264
+182,M. Sarkaria,0.693,0.49,0.291,0.444,0.295,1,0.969
+183,Borja Mayoral,0.498,0.318,0.291,0.215,0.226,0.33,0.651
+184,A. Ceesay,0.962,0.69,0.276,0.038,0.054,0.038,0.261
+185,V. Bayo,0.49,0.732,0.276,0.739,0.295,0.406,0.303
+186,D. Okereke,0.276,0.261,0.276,0.172,0.257,0.33,0.739
+187,Sergio Camello,0.176,0.364,0.276,0.134,0.241,0.644,0.069
+188,J. Siebatcheu,0.939,0.625,0.261,0.333,0.36,0.23,0.019
+189,T. Abraham,0.157,0.831,0.261,0.333,0.475,0.72,0.556
+190,P. Schick,0.088,0.563,0.261,0.824,0.559,0.015,0.276
+191,Maxi Gómez,0.027,0.747,0.261,0.042,0.295,0.812,0.429
+192,Nuno Da Costa,1,0.785,0.241,0.08,0.249,0.49,0.785
+193,F. Niederlechner,0.885,0.582,0.241,0.215,0.169,0.038,0.211
+194,I. Ganago,0.314,0.816,0.241,0.103,0.356,0.571,0.303
+195,S. Becker,0.18,0.184,0.241,0.019,0.372,0.812,0.981
+196,H. Seferović,0.015,0.575,0.241,0.739,0.736,0.571,0.41
+197,M. El Idrissy,0.985,0.498,0.226,0.184,0.23,0.069,0.038
+198,André Silva,0.885,0.261,0.226,0.061,0.169,0.613,0.598
+199,A. Sima,0.728,0.345,0.226,0.241,0.594,0.149,0.506
+200,I. Koné,0.525,0.874,0.226,0.103,0.203,0.33,0.004
+201,M. Stroeykens,0.973,0.142,0.215,0.303,0.333,0.33,0.739
+202,F. Krüger,0.877,0.467,0.215,0.134,0.103,0.854,0.314
+203,S. Weissman,0.284,0.05,0.215,0.184,0.119,0.069,0.008
+204,T. Ambrose,0.728,0.881,0.195,0.51,0.575,0.812,0.992
+205,Dany Mota,0.544,0.379,0.195,0.08,0.437,0.812,0.789
+206,B. Johnson,0.464,0.138,0.195,0.165,0.314,0.644,0.912
+207,J. Vardy,0.337,0.686,0.195,0.103,0.337,0.038,0.084
+208,S. Prevljak,0.303,0.352,0.195,0.264,0.215,0.004,0.13
+209,Roger Martí,0.912,0.172,0.184,0.061,0.023,0.33,0.172
+210,Silas,0.686,0.609,0.184,0.134,0.203,0.23,0.82
+211,B. Michel,0.368,0.667,0.184,0.08,0.268,0.406,0.287
+212,J. Strand Larsen,0.701,0.87,0.172,0.241,0.119,0.644,0.111
+213,K. Andrić,0.678,0.828,0.172,0.241,0.011,0.23,0.103
+214,N. Jackson,0.107,0.103,0.172,0.264,0.349,0.613,0.586
+215,Iñaki Williams,0.506,0.674,0.161,0.08,0.567,0.571,0.854
+216,S. Terodde,0.387,0.295,0.161,0.444,0.464,0.149,0.015
+217,G. Kyei,0.356,0.161,0.161,0.59,0.157,0.069,0.471
+218,C. Kouamé,0.866,0.985,0.146,0.103,0.839,0.931,0.866
+219,D. Solanke,0.594,0.636,0.146,0.264,0.295,0.149,0.533
+220,A. Pinamonti,0.088,0.314,0.146,0.264,0.628,0.406,0.375
+221,A. Delort,0.057,0.567,0.146,0.923,0.398,0.406,0.835
+222,Tiago Tomás,0.563,0.326,0.138,0.019,0.031,0.644,0.95
+223,F. Bonazzoli,0.425,0.483,0.138,0.054,0.077,0.149,0.054
+224,L. Boyé,0.992,0.284,0.1,0.165,0.284,0.406,0.874
+225,A. Hunou,0.981,0.621,0.1,0.134,0.054,0.149,0.149
+226,S. Adamyan,0.95,0.207,0.1,0.636,0.831,0.149,0.67
+227,Pizzi,0.789,0.057,0.1,0.08,0.065,0.954,0.487
+228,M. Niang,0.785,0.774,0.1,0.418,0.146,0.149,0.54
+229,B. Mbeumo,0.778,0.142,0.1,0.061,0.107,0.854,0.87
+230,D. Gray,0.778,0,0.1,0.054,0.115,0.946,0.943
+231,R. Jiménez,0.674,0.889,0.1,0.552,0.693,0.72,0.464
+232,Hugo Duro,0.387,0.241,0.1,0.418,0.49,0.149,0.046
+233,Willian José,0.138,0.391,0.1,0.418,0.004,0.23,0.077
+234,R. Borré,0.931,0.648,0.08,0.184,0.513,0.613,0.375
+235,M. Seuntjens,0.897,0.123,0.08,0.019,0.015,0.854,0.966
+236,A. Petagna,0.609,0.996,0.08,0.387,0.789,0.931,0.375
+237,A. Modeste,0.533,0.927,0.08,0.563,0.146,0.069,0.011
+238,N. Maupay,0.368,0.199,0.08,0.444,0.084,0.069,0.084
+239,K. Lasagna,0.693,0.195,0.061,0.387,0.448,0.23,0.33
+240,M. Barrow,0.276,0.027,0.061,0.004,0,0.931,0.674
+241,R. Yaremchuk,0.153,0.475,0.061,0.215,0.628,0.49,0.13
+242,I. Niane,0.107,0.31,0.061,0.716,0.502,0.149,0.533
+243,B. Yılmaz,0.054,0.843,0.061,0.866,0.222,0.406,0.352
+244,G. Rutter,0.87,0.333,0.034,0.264,0.387,0.954,0.989
+245,K. Piątek,0.847,0.655,0.034,0.418,0.126,0.015,0.172
+246,D. Karlsbakk,0.743,0.559,0.034,0.134,0.49,0.069,0.199
+247,A. Budimir,0.69,0.908,0.034,0.368,0.782,0.004,0.111
+248,D. Welbeck,0.548,0.751,0.034,0.444,0.448,0.49,0.119
+249,L. Ajorque,0.49,0.793,0.034,0.303,0.579,0.23,0.08
+250,F. Caputo,0.008,0.218,0.034,0.103,0.594,0.23,0.096
+251,A. Armstrong,0.801,0.126,0.027,0.103,0.421,0.49,0.605
+252,M. Satriano,0.705,0.307,0.027,0.042,0.126,0.149,0.372
+253,I. Mbenza,0.33,0.594,0.023,0.034,0.073,0.966,0.716
+254,A. Elis,0.816,0.084,0.019,0.019,0.169,0.33,0.674
+255,S. Lammers,0.793,0.625,0.011,0.061,0.525,0.406,0.444
+256,I. Success,0.211,0.51,0.011,0.008,0.705,0.954,0.72
+257,E. Gyasi,0.958,0.134,0.008,0.008,0.038,0.069,0.065
+258,G. Morandi,0.667,0.529,0,0.008,0.05,0.812,0.59
+259,Choco Lozano,0.257,0.494,0,0,0.008,0.038,0.889`;
+
+const dataArray = csvData.split('\n').map(line => line.split(','));
+
+function search(query) {
+  const results = dataArray.filter(data => data[1].toLowerCase().includes(query.toLowerCase()));  
+  return results.length > 0 ? results[0] : null;
+}
+
+const searchQuery = prompt("Enter the name of the first striker:");
+const results = search(searchQuery);
+if (results) {
+  const resultsDiv = document.createElement('div');
+  resultsDiv.innerHTML = `<p class="highlight">${results[1]}: ${results.slice(2).join(', ')}</p>`;
+document.body.appendChild(resultsDiv);
+} else {
+  console.log(`No results found for '${searchQuery}'`);
+}
+
+const searchQuery2 = prompt("Enter the name of the second striker:");
+const results2 = search(searchQuery2);
+if (results2) {
+  const resultsDiv2 = document.createElement('div');
+  resultsDiv2.innerHTML = `<p class="highlight2">${results2[1]}: ${results2.slice(2).join(', ')}</p>`;
+document.body.appendChild(resultsDiv2);
+} else {
+  console.log(`No results found for '${searchQuery2}'`);
+}
+
+const combResults = [results.join(', '), results2.join(', ')].join('\n');
+console.log(combResults);
+
+
+</script>
+
+<div class="code-block" id="code-block-1">
+  <pre>
+    <code>
+
+
+
+<div class="radar_label">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 379.04 372.18">
+    
+    <g class="radar_label" data-type="xA" data-idx="0">
+      <text class="label" transform="translate(166.99 36.45) rotate(-1)">xA</text></g>
+    <g class="radar_label" data-type="Box touches" data-idx="6">
+      <text class="label" transform="matrix(0.5, -0.86, 0.86, 0.5, 45.89, 121.88) rotate(10.87)">Box touches</text>
+    </g>
+    <g class="radar_label" data-type="xG" data-idx="5">
+      <text class="label" transform="matrix(-0.38, -0.93, 0.93, -0.38, 50.38, 258.78)">Passes</text>
+    </g>
+    <g class="radar_label" data-type="NPG" data-idx="4">
+      <text class="label" transform="translate(110.19 332.04) rotate(24.87)">NPG</text>
+    </g>
+    <g class="radar_label" data-type="Aerial%" data-idx="3">
+      <text class="label" transform="translate(248.36 345.52) rotate(-23.32)">Aerial%</text>
+    </g>
+    <g class="radar_label" data-type=“Def. Actions” data-idx="2">
+      <text class="label" transform="translate(354.56 182.26) rotate(100.11)">Def. Actions</text>
+    </g>
+    <g class="radar_label" data-type="Off. Actions" data-idx="1">
+      <text class="label" transform="translate(280.42 58.68) rotate(48.09)">Off. Actions</text>
+    </g>
+    
+    
+  </svg>
+  							</div></code></pre></div>
+
+
+
+<div class="code-block" id="code-block-2">
+<pre>
+<code>
+
+<div class="center">
+<div id="radar_container">
+								<div id="radar_chart"><svg width="400" height="400" class="radar">
+  <g transform="translate(200,183)">
+  
+   <g class="axisWrapper">
+                            <circle class="blackCircle" r="175" style="fill:none; stroke:#D3D3D3; stroke-width:1;"></circle>
+                             
+                              <circle class="gridCircle" r="175" style="fill: rgb(16, 135, 188); fill-opacity: 0.03; filter: url(&quot;#glow&quot;);"></circle>
+                                
+                                <circle class="gridCircle" r="140" style="fill: rgb(16, 135, 188); fill-opacity: 0.03; filter: url(&quot;#glow&quot;);"></circle>
+                                
+                                <circle class="gridCircle" r="105" style="fill: rgb(16, 135, 188); fill-opacity: 0.03; filter: url(&quot;#glow&quot;);"></circle>
+                                
+                                <circle class="gridCircle" r="70" style="fill: rgb(16, 135, 188); fill-opacity: 0.03; filter: url(&quot;#glow&quot;);"></circle>
+                                
+                                <circle class="gridCircle" r="35" style="fill: rgb(16, 135, 188); fill-opacity: 0.03; filter: url(&quot;#glow&quot;);"></circle></g>
+                                
+  
+ 
+    <line x1="0" y1="0" x2="8.59" y2="174.79" stroke="#D3D3D3" stroke-width="1" transform="translate(-8.59, -174.79)"></line>
+    <line x1="0" y1="0" x2="-130.8" y2="116.2" stroke="#D3D3D3" stroke-width="1" transform="translate(130.8, -116.2)"></line>
+    <line x1="0" y1="0" x2="-172.46" y2="-29.68" stroke="#D3D3D3" stroke-width="1" transform="translate(172.46, 29.68)"></line>
+    <line x1="0" y1="0" x2="-84.4" y2="-153.3" stroke="#D3D3D3" stroke-width="1" transform="translate(84.4, 153.3)"></line>
+    <line x1="0" y1="0" x2="67.12" y2="-161.6" stroke="#D3D3D3" stroke-width="1" transform="translate(-67.12, 161.6)"></line>
+    <line x1="0" y1="0" x2="168.17" y2="-48.4" stroke="#D3D3D3" stroke-width="1" transform="translate(-168.17, 48.4)"></line>
+    <line x1="0" y1="0" x2="142.75" y2="101.23" stroke="#D3D3D3" stroke-width="1" transform="translate(-142.75, -101.23)"></line>
+                                
+                                
+  
+    <g class="radarWrapper"></g>
+    <g class="radarWrapper2"></g>
+     </g>
+ 
+ <script>
+
+
+
+const rows = combResults.split('\n');
+const data = [];
+const data2 = [];
+
+const row1Cols = rows[0].split(',');
+for (let i = 2; i < row1Cols.length; i++) {
+  data.push({ axis: i - 1, value: parseFloat(row1Cols[i]) });
+}
+
+const row2Cols = rows[1].split(',');
+for (let i = 2; i < row2Cols.length; i++) {
+  data2.push({ axis: i - 1, value: parseFloat(row2Cols[i]) });
+}
+
+
+  const outerRadius = 175;
+  const innerRadius = 0;
+  const center = [0, 0];
+
+  const angles = [0, 2*Math.PI/7, 4*Math.PI/7, 6*Math.PI/7, 8*Math.PI/7, 10*Math.PI/7, 12*Math.PI/7];
+
+  function axisValueToCartesian(axis, value) {
+    let angle = angles[axis-1];
+    angle += (2*Math.PI/7) * + 0.2 ;
+    const x = 175*value * Math.cos(angle);
+    const y = 175*value * Math.sin(angle);
+    return { x, y };
+  }
+
+  const svg = document.querySelector('.radar');
+  const radarWrapper = svg.querySelector('.radarWrapper');
+  const radarWrapper2 = svg.querySelector('.radarWrapper2');
+
+
+  data.forEach(({ axis, value }) => {
+    const { x, y } = axisValueToCartesian(axis, value, outerRadius);
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('class', 'radarCircle');
+    circle.setAttribute('r', '7');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.style.fill = 'rgb(248, 0, 200)';
+    circle.style.fillOpacity = 0.8;
+    radarWrapper.appendChild(circle);
+  });
+  
+  data2.forEach(({ axis, value }) => {
+    const { x, y } = axisValueToCartesian(axis, value, outerRadius);
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('class', 'radarCircle');
+    circle.setAttribute('r', '7');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.style.fill = 'rgb(28, 63, 213)';
+    circle.style.fillOpacity = 0.8;
+    radarWrapper2.appendChild(circle);
+  });
+  
+  function createRadarLines() {
+  const points = data.map(({ axis, value }) => {
+    const { x, y } = axisValueToCartesian(axis, value, outerRadius);
+    return `${x},${y}`;
+  }).join(' ');
+
+ const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+polyline.setAttribute('class', 'radarLines');
+polyline.setAttribute('points', `${points} ${points.split(' ')[0]}`);
+polyline.setAttribute('stroke', 'rgb(248, 0, 200)');
+polyline.setAttribute('stroke-width', '3');
+polyline.setAttribute('fill', 'none');
+radarWrapper.appendChild(polyline);
+
+}
+
+
+createRadarLines();
+
+
+ function createRadarLines2() {
+  const points = data2.map(({ axis, value }) => {
+    const { x, y } = axisValueToCartesian(axis, value, outerRadius);
+    return `${x},${y}`;
+  }).join(' ');
+
+ const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+polyline.setAttribute('class', 'radarLines');
+polyline.setAttribute('points', `${points} ${points.split(' ')[0]}`);
+polyline.setAttribute('stroke', 'rgb(28, 63, 213)');
+polyline.setAttribute('stroke-width', '3');
+polyline.setAttribute('fill', 'none');
+radarWrapper2.appendChild(polyline);
+
+}
+
+
+
+createRadarLines2();
+
+  
+  
+</script>
+
+  </g>
+</svg>
+</div>							
+</section>
+</div>
+</code>
+</pre>
+</div> 
+</div>
+<div>
+ <code>
+Percentile rank: Successful def. actions per 90, Aerial won %, NPG per 90, xG per 90, Touches in box per 90, xA per 90, Successful off. actions. <br>
+Data from WyScout.
+    </code>
+
+</div> 
+</body>
+</html>
