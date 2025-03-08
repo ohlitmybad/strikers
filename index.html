@@ -1796,18 +1796,7 @@ const _0xd1744f=_0x149e;(function(_0x21407d,_0x1ba0bf){const _0x36cd57=_0x149e,_
           }
         });
   
-        // Update placeholders for elements with data-i18n-placeholder attribute
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-          const keys = element.getAttribute('data-i18n-placeholder').split('.');
-          let value = translations;
-          for (const key of keys) {
-            value = value[key];
-          }
-          if (value) {
-            element.placeholder = value;
-          }
-        });
-  
+
         // Update meta tags
         document.title = translations.meta.title;
         document.querySelector('meta[name="description"]').setAttribute('content', translations.meta.description);
