@@ -12,22 +12,22 @@
       "percentiles": "Centiles",
       "age": "Âge",
       "passrec": "Passes reçues",
-      "aerial": "Aérien%",
-      "xG": "Buts non-penalty",
-      "xAssist": "Buts attendus",
-      "progPasses": "Passes vers la surface",
+      "aerial": "Duel aérien%",
+      "xG": "Buts sans penalty",
+      "xAssist": "xG",
+      "progPasses": "Passes vers surface",
       "duel": "xA",
-      "attactions": "Actions att.",
+      "attactions": "Actions off.",
       "minutes": "Minutes jouées"
     },
     "radar": {
       "xa": "xA",
-      "passesToBox": "Passes vers la surface",
+      "passesToBox": "Passes surf",
       "xg": "xG",
-      "npg": "Buts NP",
+      "npg": "Buts",
       "aerial": "Aérien%",
-      "passesRec": "Passes reçues",
-      "attActions": "Actions att"
+      "passesRec": "Passes rec",
+      "attActions": "Actions off"
     },
     "buttons": {
       "team": "Équipe"
