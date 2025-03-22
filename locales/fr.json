@@ -1,0 +1,42 @@
+{
+    "header": {
+      "home": "Accueil",
+      "pro": "Pro",
+      "guide": "Guide"
+    },
+    "search": {
+      "placeholder": "Chercher une équipe ou joueur...",
+      "placeholder2": "Chercher un buteur..."
+    },
+    "table": {
+      "percentiles": "Centiles",
+      "age": "Âge",
+      "passrec": "Passes reçues",
+      "aerial": "% Duel aérien",
+      "xG": "Buts hors pen",
+      "xAssist": "xG",
+      "progPasses": "Passes vers surface",
+      "duel": "xA",
+      "attactions": "Actions off",
+      "minutes": "Minutes jouées"
+    },
+    "radar": {
+      "xa": "xA",
+      "passesToBox": "Passes Surf",
+      "xg": "xG",
+      "npg": "Buts",
+      "aerial": "% Aérien",
+      "passesRec": "Passes Rec",
+      "attActions": "Actions Off"
+    },
+    "buttons": {
+      "team": "Équipe"
+    },
+    "similar": {
+      "to": "Données similaires à"
+    },
+    "meta": {
+      "title": "DataMB | Comparer les buteurs",
+      "description": "Comparez les statistiques des buteurs et attaquants dans les 7 meilleures ligues. Visualisez la performance des joueurs. Trouvez des profils similaires. Utilisez notre outil radar pour comparer les buts; xG; tirs; duels aériens; dribbles; xA; courses progressives et plus pour les attaquants en Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga."
+    }
+  } 
