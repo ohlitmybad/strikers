@@ -11,23 +11,23 @@
     "table": {
       "percentiles": "Centiles",
       "age": "Âge",
-      "passrec": "Passes reçues",
-      "aerial": "% Duel aérien",
-      "xG": "Buts hors pen",
-      "xAssist": "xG",
-      "progPasses": "Passes vers surface",
-      "duel": "xA",
-      "attactions": "Actions off",
-      "minutes": "Minutes jouées"
+      "npg": "Buts HP",
+      "npxg": "npxG",
+      "conversion": "% Conv buts",
+      "xa": "xA",
+      "offduels": "Duels off gagnés",
+      "touches": "Touches surface",
+      "aerial": "% Aérien",
+      "minutes": "Minutes"
     },
     "radar": {
       "xa": "xA",
-      "passesToBox": "Passes Surf",
-      "xg": "xG",
-      "npg": "Buts",
+      "touches": "Touches surf",
       "aerial": "% Aérien",
-      "passesRec": "Passes Rec",
-      "attActions": "Actions Off"
+      "conversion": "% Conversion",
+      "npxg": "npxG",
+      "npg": "Buts HP",
+      "offduels": "Duels off"
     },
     "buttons": {
       "team": "Équipe"
@@ -37,7 +37,7 @@
     },
     "meta": {
       "title": "DataMB | Comparer les buteurs",
-      "description": "Comparez les statistiques des buteurs et attaquants dans les 7 meilleures ligues. Visualisez la performance des joueurs. Trouvez des profils similaires. Utilisez notre outil radar pour comparer les buts; xG; tirs; duels aériens; dribbles; xA; courses progressives et plus pour les attaquants en Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga."
+      "description": "Comparez les statistiques des buteurs et attaquants dans les 7 meilleures ligues. Visualisez la performance des joueurs. Trouvez des profils similaires. Utilisez notre outil radar pour comparer les buts; xG; duels aériens; duels offensifs gagnés; xA; taux de conversion des tirs; touches dans la surface et plus pour les attaquants en Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga."
     },
     "positions": {
       "goalkeeper": "Gardien",
@@ -46,5 +46,11 @@
       "midfielder": "Milieu",
       "winger": "Ailier",
       "striker": "Buteur"
+    },
+    "footer": {
+      "rights": "© Tous droits réservés",
+      "privacy": "Confidentialité",
+      "contact": "Contact",
+      "about": "À propos"
     }
-  } 
+  }
