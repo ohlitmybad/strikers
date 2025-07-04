@@ -11,23 +11,23 @@
   "table": {
     "percentiles": "Percentiles",
     "age": "Age",
-    "passrec": "Passes received",
+    "npg": "NPG",
+    "npxg": "npxG",
+    "conversion": "Goal conv%",
+    "xa": "xA",
+    "offduels": "Off duels won",
+    "touches": "Touches in box",
     "aerial": "Aerial%",
-    "xG": "Non-penalty goals",
-    "xAssist": "xG",
-    "progPasses": "Passes to box",
-    "duel": "xA",
-    "attactions": "Att. actions",
-    "minutes": "Minutes played"
+    "minutes": "Minutes"
   },
   "radar": {
     "xa": "xA",
-    "passesToBox": "Passes to box",
-    "xg": "xG",
-    "npg": "NPG",
+    "touches": "Touches in box",
     "aerial": "Aerial%",
-    "passesRec": "Passes Rec",
-    "attActions": "Att Actions"
+    "conversion": "Conversion%",
+    "npxg": "npxG",
+    "npg": "NPG",
+    "offduels": "Off duels"
   },
   "buttons": {
     "team": "Team"
@@ -37,7 +37,7 @@
   },
   "meta": {
     "title": "DataMB | Compare Strikers",
-    "description": "Compare striker statistics in the Top 7 Leagues. Visualize player performance. Find similar profiles. Use our radar tool to compare goals; xG; shots; aerial duels; dribbles; xA; progressive runs and more for strikers in Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga."
+    "description": "Compare the statistics of strikers (centre-forwards) in the Top 7 Leagues. Visualize player performance. Find similar profiles. Use our radar tool to compare non-penalty goals; expected goals (npxG); offensive duels won; expected assists; touches in box; goal conversion; aerial duels won % and more for strikers in Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga."
   },
   "positions": {
     "goalkeeper": "Goalkeeper",
@@ -46,5 +46,11 @@
     "midfielder": "Midfielder",
     "winger": "Winger",
     "striker": "Striker"
+  },
+  "footer": {
+    "rights": "© All Rights Reserved",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "about": "About"
   }
-} 
+}
