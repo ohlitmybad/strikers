@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Ana Sayfa",
+    "pro": "Pro",
+    "guide": "Rehber"
+  },
+  "search": {
+    "placeholder": "Takım veya oyuncu adı girin...",
+    "placeholder2": "Forvet adı girin..."
+  },
+  "table": {
+    "percentiles": "Yüzdelikler",
+    "age": "Yaş",
+    "npg": "NPG",
+    "npxg": "npxG",
+    "conversion": "Gole çevirme%",
+    "xa": "xA",
+    "offduels": "Kazanılan hücum düelloları",
+    "touches": "RCS topla buluşma",
+    "aerial": "Hava%",
+    "minutes": "Dakika"
+  },
+  "radar": {
+    "xa": "xA",
+    "touches": "RCS topla buluşma",
+    "aerial": "Hava%",
+    "conversion": "Gole çevirme%",
+    "npxg": "npxG",
+    "npg": "NPG",
+    "offduels": "Hücum düelloları"
+  },
+  "buttons": {
+    "team": "Takım"
+  },
+  "similar": {
+    "to": "Benzer veri"
+  },
+  "meta": {
+    "title": "DataMB | Forvetleri Karşılaştır",
+    "description": "En İyi 7 Ligdeki forvetlerin (merkez forvetlerin) istatistiklerini karşılaştırın. Oyuncu performansını görselleştirin. Benzer profiller bulun. Premier Lig, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga'daki forvetler için penaltı olmayan goller; beklenen goller (npxG); kazanılan hücum düelloları; beklenen asistler; RCS topla buluşma; gole çevirme; kazanılan hava düelloları % ve daha fazlasını karşılaştırmak için radar aracımızı kullanın."
+  },
+  "positions": {
+    "goalkeeper": "Kaleci",
+    "centreback": "Stoper",
+    "fullback": "Bek",
+    "midfielder": "Orta saha",
+    "winger": "Kanat",
+    "striker": "Forvet"
+  },
+  "footer": {
+    "rights": "© Tüm Hakları Saklıdır",
+    "privacy": "Gizlilik",
+    "contact": "İletişim",
+    "about": "Hakkında"
+  }
+} 
