@@ -16,13 +16,13 @@
     "conversion": "Gole çevirme%",
     "xa": "xA",
     "offduels": "Kazanılan hücum düelloları",
-    "touches": "RCS topla buluşma",
+    "touches": "RCS topla",
     "aerial": "Hava%",
     "minutes": "Dakika"
   },
   "radar": {
     "xa": "xA",
-    "touches": "RCS topla buluşma",
+    "touches": "RCS topla",
     "aerial": "Hava%",
     "conversion": "Gole çevirme%",
     "npxg": "npxG",
@@ -37,7 +37,7 @@
   },
   "meta": {
     "title": "DataMB | Forvetleri Karşılaştır",
-    "description": "En İyi 7 Ligdeki forvetlerin (merkez forvetlerin) istatistiklerini karşılaştırın. Oyuncu performansını görselleştirin. Benzer profiller bulun. Premier Lig, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga'daki forvetler için penaltı olmayan goller; beklenen goller (npxG); kazanılan hücum düelloları; beklenen asistler; RCS topla buluşma; gole çevirme; kazanılan hava düelloları % ve daha fazlasını karşılaştırmak için radar aracımızı kullanın."
+    "description": "En İyi 7 Ligdeki forvetlerin (merkez forvetlerin) istatistiklerini karşılaştırın. Oyuncu performansını görselleştirin. Benzer profiller bulun. Premier Lig, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga'daki forvetler için penaltı olmayan goller; beklenen goller (npxG); kazanılan hücum düelloları; beklenen asistler; RCS topla; gole çevirme; kazanılan hava düelloları % ve daha fazlasını karşılaştırmak için radar aracımızı kullanın."
   },
   "positions": {
     "goalkeeper": "Kaleci",
