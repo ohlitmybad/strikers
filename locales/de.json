@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Startseite",
+    "pro": "Pro",
+    "guide": "Anleitung"
+  },
+  "search": {
+    "placeholder": "Team- oder Spielername eingeben...",
+    "placeholder2": "Name des Stürmers eingeben..."
+  },
+  "table": {
+    "percentiles": "Perzentile",
+    "age": "Alter",
+    "npg": "Tore o.E.",
+    "npxg": "npxG",
+    "conversion": "Torquote%",
+    "xa": "xA",
+    "offduels": "Off. Duelle gew.",
+    "touches": "Ballkontakte im Strafraum",
+    "aerial": "Kopfball%",
+    "minutes": "Minuten"
+  },
+  "radar": {
+    "xa": "xA",
+    "touches": "Kontakte Strafraum",
+    "aerial": "Kopfball%",
+    "conversion": "Torquote%",
+    "npxg": "npxG",
+    "npg": "Tore o.E.",
+    "offduels": "Off. Duelle"
+  },
+  "buttons": {
+    "team": "Team"
+  },
+  "similar": {
+    "to": "Ähnliche Daten wie"
+  },
+  "meta": {
+    "title": "DataMB | Stürmer vergleichen",
+    "description": "Vergleichen Sie die Statistiken von Stürmern (Mittelstürmern) in den Top-7-Ligen. Visualisieren Sie Spielerleistungen. Finden Sie ähnliche Profile. Nutzen Sie unser Radar-Tool zum Vergleich von Toren ohne Elfmeter, erwarteten Toren (npxG), gewonnenen Offensivduellen, erwarteten Assists, Ballkontakten im Strafraum, Torquote, gewonnenen Kopfballduellen % und mehr für Stürmer in Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Liga Portugal."
+  },
+  "positions": {
+    "goalkeeper": "Torwart",
+    "centreback": "Innenverteidiger",
+    "fullback": "Außenverteidiger",
+    "midfielder": "Mittelfeldspieler",
+    "winger": "Flügelspieler",
+    "striker": "Stürmer"
+  },
+  "footer": {
+    "rights": "© Alle Rechte vorbehalten",
+    "privacy": "Datenschutz",
+    "contact": "Kontakt",
+    "about": "Über uns"
+  }
+}
