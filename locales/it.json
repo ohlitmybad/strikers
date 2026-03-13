@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Home",
+    "pro": "Pro",
+    "guide": "Guida"
+  },
+  "search": {
+    "placeholder": "Inserisci nome squadra o giocatore...",
+    "placeholder2": "Inserisci nome dell'attaccante..."
+  },
+  "table": {
+    "percentiles": "Percentili",
+    "age": "Età",
+    "npg": "Gol no rig.",
+    "npxg": "npxG",
+    "conversion": "Conversione%",
+    "xa": "xA",
+    "offduels": "Duelli off. vinti",
+    "touches": "Tocchi in area",
+    "aerial": "Aerei%",
+    "minutes": "Minuti"
+  },
+  "radar": {
+    "xa": "xA",
+    "touches": "Tocchi area",
+    "aerial": "Aerei%",
+    "conversion": "Conversione%",
+    "npxg": "npxG",
+    "npg": "NPG",
+    "offduels": "Duelli off."
+  },
+  "buttons": {
+    "team": "Squadra"
+  },
+  "similar": {
+    "to": "Dati simili a"
+  },
+  "meta": {
+    "title": "DataMB | Confronta Attaccanti",
+    "description": "Confronta le statistiche degli attaccanti (centravanti) nei primi 7 campionati. Visualizza le prestazioni dei giocatori. Trova profili simili. Usa il nostro strumento radar per confrontare gol senza rigori, expected goals (npxG), duelli offensivi vinti, assist attesi, tocchi in area, conversione gol, percentuale duelli aerei vinti e altro per gli attaccanti in Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Liga Portugal."
+  },
+  "positions": {
+    "goalkeeper": "Portiere",
+    "centreback": "Difensore centrale",
+    "fullback": "Terzino",
+    "midfielder": "Centrocampista",
+    "winger": "Esterno",
+    "striker": "Attaccante"
+  },
+  "footer": {
+    "rights": "© Tutti i diritti riservati",
+    "privacy": "Privacy",
+    "contact": "Contatti",
+    "about": "Chi siamo"
+  }
+}
